@@ -9,12 +9,11 @@ public class SortingTest {
     Sorting sorting = new Sorting();
     int[] array = new int[]{};
 
-    //@test
+
     @Test(expected = IllegalArgumentException.class)
     public void testNullCase(){
-        if(array.length == 0){
-            throw new IllegalArgumentException();
-        }
+
+        sorting.sort(null);
     }
 
     @Test
@@ -49,16 +48,19 @@ public class SortingTest {
 
     @Test
     public void testSortedArraysCase() {
-        int[] array = new int[]{1, 3, 2, 7, 4};
-        sorting.sort(array);
-        assertArrayEquals(new int[]{1, 2, 3, 4, 7}, array);
+        int[] array = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
+        int[] sameArray = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+        sorting.sort(sameArray);
+        assertArrayEquals(sameArray, array);
     }
 
     @Test
     public void testOtherCases() {
-        int[] array = new int[]{1, -3, 2, 4};
-        sorting.sort(array);
-        assertArrayEquals(new int[]{-3, 1, 2, 4}, array);
+        int[] afterSorting = new int[]{ -3, 1, 2, 4};
+        int[] beforeSorting = new int[] {1, -3, 2, 4 };
+        sorting.sort(beforeSorting);
+        assertArrayEquals(afterSorting, beforeSorting);
+
     }
 
 }
